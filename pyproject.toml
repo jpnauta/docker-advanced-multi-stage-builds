@@ -1,0 +1,17 @@
+[build-system]
+requires = ["poetry>=1.8"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = "Example for a scalable multi-stage builds."
+authors = ["Jeremy Nauta"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.111.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.2.0"
+starlette = "^0.37.2"

@@ -1,0 +1,23 @@
+schemaVersion: 2.0.0
+fileExistenceTests:
+- name: "Source code exists"
+  path: "/opt/app/app/main.py"
+  shouldExist: true
+- name: "Test code does not exist"
+  path: "/opt/app/tests/"
+  shouldExist: false
+- name: "Prod dependencies installed"
+  path: "/opt/app/.venv/bin/fastapi"
+  shouldExist: true
+- name: "Test dependencies not installed"
+  path: "/opt/app/.venv/bin/pytest"
+  shouldExist: false
+commandTests:
+  - name: "Dependencies on PATH"
+    command: "which"
+    args: ["fastapi"]
+    expectedOutput: ["/opt/app/.venv/bin/fastapi"]
+  - name: "Dev dependencies not installed"
+    command: "which"
+    args: ["htop"]
+    exitCode: 1

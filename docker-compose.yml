@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      target: development
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/opt/app
+      - /opt/app/.venv
+    command: "fastapi dev ./app/main.py"

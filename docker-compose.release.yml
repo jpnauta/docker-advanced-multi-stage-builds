@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+    image: app
+    command: "tail -f /dev/null"
+  test:
+    build:
+      context: ./release
+    command: "test --image app --config test.yml"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
